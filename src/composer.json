@@ -13,6 +13,8 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
+        "laravel/sanctum": "^2.4",
+        "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1"
     },
@@ -60,5 +62,12 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "extra": {
+    "laravel": {
+        "dont-discover": [
+            "laravel/telescope"
+        ]
     }
+},
 }
