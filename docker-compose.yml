@@ -24,6 +24,7 @@ services:
     image: mysql:5.7.29
     container_name: mysql
     restart: unless-stopped
+    # command: --default-authentication-plugin=mysql_native_password
     tty: true
     ports:
       - "3306:3306"
@@ -37,7 +38,13 @@ services:
     networks:
       - laravel
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql_dump:/docker-entrypoint-initdb.d
+      # - ./mysql:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
 
   php:
     build:

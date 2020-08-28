@@ -22,4 +22,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-
+Route::post('/oauth/token', 'HomeController@token');

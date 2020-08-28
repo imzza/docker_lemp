@@ -12,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -28,11 +28,19 @@ class HomeController extends Controller
     }
 
     public function token(Request $request) {
+        // $response = Http::post('https://localhost/oauth/token', [
+        //     'form_params' => [
+        //         'grant_type' => 'password',
+        //         'client_id' => '916298a1-4ade-465d-abe8-5e1e6edaa288',
+        //         'client_secret' => 'IGhiIMIsi7LiTH1k9LSruCvj3YJloVMRkeWX58CW',
+        //         'username' => $request->username,
+        //         'password' => $request->password,
+        //         'scope' => '',
+        //     ],
+        // ]);
 
-        return response()->json($request->all());
-
-        $http = new GuzzleHttp\Client;
-        $response = $http->post('https://localhost/oauth/token', [
+        $http = new \GuzzleHttp\Client;
+        $response = $http->post('http://localhost:8080/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',
                 'client_id' => '916298a1-4ade-465d-abe8-5e1e6edaa288',
