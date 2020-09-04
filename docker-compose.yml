@@ -70,7 +70,7 @@ services:
       - laravel
 
   npm:
-    image: node:13.7
+    image: node:13.7-alpine
     container_name: npm
     volumes:
       - ./src:/var/www/html
