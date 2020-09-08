@@ -40,11 +40,33 @@ services:
     volumes:
       - ./mysql_dump:/docker-entrypoint-initdb.d
       # - ./mysql:/var/lib/mysql
+  
   adminer:
     image: adminer
-    restart: always
+    container_name: adminer
     ports:
-      - 8081:8080
+      - "8082:8080"
+    depends_on:
+      - mysql
+
+    networks:
+      - laravel
+    
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   container_name: phpmyadmin
+  #   restart: always
+  #   ports:
+  #     - "8081:80"
+  #   depends_on:
+  #     - mysql
+  #   environment:
+  #     PMA_HOST: mysql
+  #     MYSQL_ROOT_PASSWORD: secret
+
+  #   networks:
+  #     - laravel
 
   php:
     build:
