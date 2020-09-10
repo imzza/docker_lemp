@@ -33,3 +33,10 @@ By default, whenever you bring down the Docker network, your MySQL data will be 
 volumes:
   - ./mysql:/var/lib/mysql
 ```"# docker_lemp" 
+
+docker-compsoe up -f docker-compose-dev.yml -d --build
+docker-compose run --rm artisan migrate
+docker-compose run --rm composer update
+docker-compose run --rm npm i
+
+docker-compose-dev.yml

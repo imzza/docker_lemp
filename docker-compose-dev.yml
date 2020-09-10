@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  php:
+    image: php-7-4-fpm:alpine
+    container_name: php
+    networks:
+      - laravel_dev
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    networks:
+      - laravel_dev
+
+  nginx:
+    image: nginx-stable:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - php
+      - mysql
+    volumes:
+      - ./src:/var/www/html
+      - .nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - laravel_dev
+
+
+networks:
+  laravel_dev:

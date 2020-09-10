@@ -1,8 +1,7 @@
 version: '3'
-
 networks:
   laravel:
-
+  	
 services:
   site:
     image: nginx:stable-alpine
