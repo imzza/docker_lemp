@@ -122,3 +122,12 @@ services:
       - ./src:/var/www/html
     networks:
       - laravel
+
+#  mailhog:
+#    image: mailhog/mailhog
+#    container_name: mailhog
+#    networks:
+#      - laravel
+#    ports:
+#    - "1025:1025"
+#    - "8025:8025"
