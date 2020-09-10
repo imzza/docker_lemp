@@ -1,13 +1,28 @@
 version: '3.7'
-
 services:
   php:
-    image: php-7-4-fpm:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php
+    volumes:
+      - ./src:/var/www/html
+
     networks:
       - laravel_dev
   mysql:
-    image: mysql:5.7
+    image: mysql:5.7.29
+    restart: unless_stopped
+    tty: true
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USERNAME: homestead
+      MYSQL_PASSWORD: secret
+
+    volumes:
+      - ./data:/var/lib/mysql
+
     container_name: mysql
     networks:
       - laravel_dev
@@ -27,6 +42,9 @@ services:
     networks:
       - laravel_dev
 
-
 networks:
   laravel_dev:
+
+volumes:
+  driver:
+    lcoal:
