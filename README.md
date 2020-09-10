@@ -48,5 +48,3 @@ docker-compose stop cron
 docker-compose exec nginx /bin/sh
 
 docker-compose ps
-
-
