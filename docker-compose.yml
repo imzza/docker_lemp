@@ -1,7 +1,8 @@
 version: '3'
+
 networks:
   laravel:
-  	
+
 services:
   site:
     image: nginx:stable-alpine
@@ -109,5 +110,15 @@ services:
       - mysql
     working_dir: /var/www/html
     entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
+  
+  cron:
+    build:
+      context: .
+      dockerfile: cron.dockerfile
+    container_name: cron
+    volumes:
+      - ./src:/var/www/html
     networks:
       - laravel

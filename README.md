@@ -40,3 +40,13 @@ docker-compose run --rm composer update
 docker-compose run --rm npm i
 
 docker-compose-dev.yml
+
+docker-compose run -d --build site
+docker-compose run -d cron
+docker-compose stop cron
+
+docker-compose exec nginx /bin/sh
+
+docker-compose ps
+
+
