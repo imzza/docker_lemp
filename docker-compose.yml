@@ -38,9 +38,9 @@ services:
     networks:
       - laravel
     volumes:
+      - ./mysql:/var/lib/mysql
       - ./mysql_dump:/docker-entrypoint-initdb.d
-      # - ./mysql:/var/lib/mysql
-  
+
   adminer:
     image: adminer
     container_name: adminer

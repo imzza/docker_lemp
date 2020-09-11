@@ -48,3 +48,6 @@ docker-compose exec nginx /bin/sh
 
 docker-compose ps
 docker-compose -f docker-compose-prod.yml up -d --build site
+
+
+docker run -dit --name my-running-app -p 8080:80 my-apache2
