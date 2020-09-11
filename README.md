@@ -51,3 +51,11 @@ docker-compose -f docker-compose-prod.yml up -d --build site
 
 
 docker run -dit --name my-running-app -p 8080:80 my-apache2
+
+
+guzzlehttp/guzzle to ^7.0.1
+facade/ignition to ^2.3.6
+laravel/framework to ^8.0
+laravel/ui to ^3.0
+nunomaduro/collision to ^5.0
+phpunit/phpunit to ^9.0
