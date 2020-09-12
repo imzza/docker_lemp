@@ -17,6 +17,8 @@ services:
     depends_on:
       - php
       - mysql
+#      - Comment the below app if you dont want to use the flask app
+      - flask
     networks:
       - laravel
 
@@ -131,3 +133,23 @@ services:
 #    ports:
 #    - "1025:1025"
 #    - "8025:8025"
+
+  flask:
+    build: ./flask
+    container_name: flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask:/code
+    environment:
+      FLASK_ENV: development
+
+    depends_on:
+      - redis
+    networks:
+      - laravel
+
+  redis:
+    image: "redis:alpine"
+    networks:
+      - laravel
