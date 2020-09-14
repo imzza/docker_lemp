@@ -17,7 +17,6 @@ services:
     depends_on:
       - php
       - mysql
-#      - Comment the below app if you dont want to use the flask app
       - flask
     networks:
       - laravel
@@ -41,7 +40,7 @@ services:
       - laravel
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./mysql_dump:/docker-entrypoint-initdb.d
+      # - ./mysql_dump:/docker-entrypoint-initdb.d
 
   adminer:
     image: adminer
@@ -134,6 +133,7 @@ services:
 #    - "1025:1025"
 #    - "8025:8025"
 
+
   flask:
     build: ./flask
     container_name: flask
@@ -143,11 +143,11 @@ services:
       - ./flask:/code
     environment:
       FLASK_ENV: development
-
     depends_on:
       - redis
     networks:
       - laravel
+
 
   redis:
     image: "redis:alpine"
