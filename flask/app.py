@@ -22,9 +22,13 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
+<<<<<<< Updated upstream
     return 'Hello World! I have been seen {} times.\n'.format(count)
 
 @app.route('/flask')
 def flask_route():
     count = get_hit_count()
     return 'Hello World! Flask Route {} times.\n'.format(count)
+=======
+    return 'Hello World! I have been seen {} times.\n'.format(count)
+>>>>>>> Stashed changes

@@ -42,6 +42,7 @@ services:
       - ./mysql:/var/lib/mysql
       # - ./mysql_dump:/docker-entrypoint-initdb.d
 
+
   adminer:
     image: adminer
     container_name: adminer
@@ -49,10 +50,9 @@ services:
       - "8082:8080"
     depends_on:
       - mysql
-
     networks:
       - laravel
-    
+
 
   # phpmyadmin:
   #   image: phpmyadmin/phpmyadmin
@@ -113,7 +113,7 @@ services:
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
-  
+
   cron:
     build:
       context: .
@@ -132,7 +132,6 @@ services:
 #    ports:
 #    - "1025:1025"
 #    - "8025:8025"
-
 
   flask:
     build: ./flask
