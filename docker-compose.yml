@@ -17,7 +17,7 @@ services:
     depends_on:
       - php
       - mysql
-      - flask
+      # - flask
     networks:
       - laravel
 
