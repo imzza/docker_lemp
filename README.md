@@ -49,9 +49,12 @@ docker-compose exec nginx /bin/sh
 docker-compose ps
 docker-compose -f docker-compose-prod.yml up -d --build site
 
+docker-compose exec app composer update
 
 docker run -dit --name my-running-app -p 8080:80 my-apache2
 
+
+ docker-compose exec app php artisan migrate
 
 guzzlehttp/guzzle to ^7.0.1
 facade/ignition to ^2.3.6
