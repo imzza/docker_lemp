@@ -62,3 +62,17 @@ laravel/framework to ^8.0
 laravel/ui to ^3.0
 nunomaduro/collision to ^5.0
 phpunit/phpunit to ^9.0
+
+Personal access client created successfully.
+Client ID: 9240b742-4dad-4445-afbf-0a5ac06d4f6a
+Client secret: 6xsSkcXeXWG8vwFqrAzU5JB83wpbAROEZvcdon0f
+Password grant client created successfully.
+Client ID: 9240b742-fa59-413f-9803-13a4f7708930
+Client secret: lpML7hSPWch53i5i7GN4mdnu63IW4UfsPkxaADUl
+
+
+SSH into the docker-compose container
+```bach
+docker-compose run $service /bin/bash
+```
+

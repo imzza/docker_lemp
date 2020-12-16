@@ -8,7 +8,7 @@ services:
     image: nginx:stable-alpine
     container_name: nginx
     ports:
-      - "8080:80"
+      - "80:80"
       - "443:443"
     volumes:
       - ./src:/var/www/html
@@ -19,8 +19,11 @@ services:
       - mysql
       - flask
     networks:
-      - laravel
+       laravel:
+          aliases:
+           - localhost
 
+#https://laracasts.com/discuss/channels/laravel/guzzlehttp-exception-connectexception-curl-error-7-failed-to-connect-to-localhost-port-8087-connection-refused
   mysql:
     image: mysql:5.7.29
     container_name: mysql
@@ -52,7 +55,7 @@ services:
 
     networks:
       - laravel
-    
+
 
   # phpmyadmin:
   #   image: phpmyadmin/phpmyadmin
@@ -93,7 +96,7 @@ services:
       - laravel
 
   npm:
-    image: node:alpine
+    image: node:12-alpine
     container_name: npm
     volumes:
       - ./src:/var/www/html
@@ -113,7 +116,7 @@ services:
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
-  
+
   cron:
     build:
       context: .
