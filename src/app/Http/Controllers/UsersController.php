@@ -27,4 +27,8 @@ class UsersController extends Controller
         ]);
         return $response->json();
     }
+
+    public function saolve(Request $request){
+        return response()->json(array('status' => 200, 'message' => 'Something is not wrong'), 200);
+    }
 }
